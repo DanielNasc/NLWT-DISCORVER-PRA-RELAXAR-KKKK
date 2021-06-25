@@ -1,6 +1,6 @@
 .content{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
     grid-template-rows: 11.4rem 1fr;
 
     grid-template-areas:
@@ -15,7 +15,8 @@ header{
 
 #bg{
     grid-area: left;
-    background: url('/assets/Ilustration.svg') no-repeat top/contain;
+    background: url('/assets/home-bg-img.svg') no-repeat top/contain;
+    background-position-x: -10rem;
 }
 
 main{
@@ -23,10 +24,11 @@ main{
 
     display: flex;
     align-items: center;
+    margin-top: -12rem;
 }
 
 main .container{
-    width: min(36.6rem 100%);
+    width: min(36.6rem, 100%);
 }
 
 main h2{
@@ -45,10 +47,49 @@ input, button, .button{
     width: 100%;
     margin-bottom: 1.8rem;
 }
-.content header{
-    width: 80%;
-    margin: 3.5rem auto
+
+/*SEPARATOR*/
+.separator{
+    display: flex;
+    align-items: center;
+    margin: 4rem 0; 
 }
-.content header img{
-    width: 16.7rem;
+
+.separator div:nth-child(2){
+    color: var(--gray-blue);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 0 1.35rem;
+    line-height:0;
+}
+
+.separator div:nth-child(1),
+.separator div:nth-child(3){
+    width: 100%;
+    background-color: var(--gray-blue);
+    height: 1px;
+}
+
+/*BALLS*/
+.ball{
+    width: 21.2rem;
+    height: 21.2rem;
+
+    opacity: .1;
+
+    clip-path: circle();
+
+    background: var(--blue);
+    position:fixed;
+}
+.ball.top{
+    width: 63.3rem;
+    height: 63.3rem;
+    top: -44rem;
+    right: -42rem;
+}
+
+.ball.bottom{
+    right: 7rem;
+    bottom: -16rem;
 }
