@@ -30,12 +30,12 @@
             </a>
             
             <div class="buttons">
-                <div class="button outlined" id="room-id" data-id='232323'>
-                    #232323
+                <div class="button outlined" id="room-id" data-id='<%= roomId %> '>
+                    #<%= roomId %> 
                     <img src="/img/copy.svg" alt="Copiar numero da sala">
                 </div>
 
-                <a href="#" class="button">
+                <a href="/create-pass" class="button">
                     <img src="/img/bncBranco.svg" alt="Criar uma sala">
                 Criar sala</a>
             </div>
@@ -44,8 +44,8 @@
         <main>
             <section id="question-from">
                 <h2>Faça sua pergunta</h2>
-                <form action="">
-                    <label for="" class="sr-only">O que você quer perguntar?</label>
+                <form action="/question/create/<%= roomId %>" method="POST">
+                    <label for="question" class="sr-only">O que você quer perguntar?</label>
                     <textarea name="question" id="question" placeholder="O que você quer perguntar?"></textarea>
 
                     <footer>
@@ -61,71 +61,63 @@
             <section id='questions'>
                 <h2 class='sr-only'>Perguntas da comunidade</h2>
 
+                <% if(!isQuestions){%>
+                    <%- include('parts/noquestion') %> 
+                
+                <%} %> 
+
                 <div class="questions">
-                    <div class="question-wrapper">
-                        <div class="question-content">
-                            
-                            <div class="user">
-                                <img src="/img/Avatar.svg" alt="ícone de usuário" />
+                    <% questions.forEach(question => { %>
+                        <div class="question-wrapper">
+                            <div class="question-content">
+                                
+                                <div class="user">
+                                    <img src="/img/Avatar.svg" alt="ícone de usuário" />
+                                </div>
+                                <div class="question">
+                                    <p><%= question.title %> </p>
+                                </div>
                             </div>
-                            <div class="question">
-                                <p>Eae blz?? KKKKKKKKKKKKK</p>
+                            <div class="actions">
+    
+                                <a href="#" class='check' data-id='<%= question.id %> '>
+                                    <img src="/img/check.svg" alt="">
+                                    Marcar como lida    
+                                </a>
+                                <a href="#" class='delete' data-id='<%= question.id %>'>
+                                    <img src="/img/trash.svg" alt="">
+                                    Excluir
+                                </a>
                             </div>
                         </div>
-                        <div class="actions">
+                    <% }) %> 
 
-                            <a href="#" class='check' data-id='1'>
-                                <img src="/img/check.svg" alt="">
-                                Marcar como lida    
-                            </a>
-                            <a href="#" class='delete' data-id='1'>
-                                <img src="/img/trash.svg" alt="">
-                                Excluir
-                            </a>
+                    <% readedQuestions.forEach(question => { %> 
+                    
+                        <div class="question-wrapper readed">
+                            <div class="question-content">
+                                
+                                <div class="user">
+                                    <img src="/img/Avatar.svg" alt="ícone de usuário" />
+                                </div>
+                                <div class="question">
+                                    <p><%= question.title %> </p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                
+                                <a href="#" class="delete" data-id='<%= question.id %>'>
+                                    <img src="/img/trash.svg" alt="">
+                                    Excluir
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    
+                    <% }) %> 
 
-                    <div class="question-wrapper">
-                        <div class="question-content">
-                            
-                            <div class="user">
-                                <img src="/img/Avatar.svg" alt="ícone de usuário" />
-                            </div>
-                            <div class="question">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores laudantium consectetur voluptas! Illum nihil et repellendus. Obcaecati, sint corrupti repudiandae consequuntur molestias, eveniet illo nihil reprehenderit, amet possimus saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vel cumque optio distinctio quia impedit laborum ducimus, eligendi perferendis fugiat consectetur aliquid? Architecto magnam, omnis minus maiores corrupti natus exercitationem.</p>
-                            </div>
-                        </div>
-                        <div class="actions">
 
-                            <a href="#" class='check' data-id='2'>
-                                <img src="/img/check.svg" alt="" >
-                                Marcar como lida    
-                            </a>
-                            <a href="#" class='delete'  data-id='2'>
-                                <img src="/img/trash.svg" alt="">
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
 
-                    <div class="question-wrapper readed">
-                        <div class="question-content">
-                            
-                            <div class="user">
-                                <img src="/img/Avatar.svg" alt="ícone de usuário" />
-                            </div>
-                            <div class="question">
-                                <p>O que você quer perguntar?</p>
-                            </div>
-                        </div>
-                        <div class="actions">
-                            
-                            <a href="#" class="delete" data-id='3'>
-                                <img src="/img/trash.svg" alt="">
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
+                   
                 </div>
 
             </section>

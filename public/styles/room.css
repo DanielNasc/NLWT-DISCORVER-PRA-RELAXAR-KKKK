@@ -150,3 +150,16 @@
 .question-wrapper.readed .question-content .user{
     background: var(--gray-blue);
 }
+
+/*NO QUESTIONS*/
+.no-questions{
+    text-align: center;
+    margin-top: 5.2rem;
+}
+
+.no-questions p {
+    color: var(--black);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+}

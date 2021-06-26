@@ -18,7 +18,8 @@ const initDb = {
             CREATE TABLE questions (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title TEXT,
-                readed INT
+                readed INT,
+                room INT
             )
         `)
 
