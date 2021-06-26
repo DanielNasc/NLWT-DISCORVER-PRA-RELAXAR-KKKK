@@ -6,33 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--CSS-->
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/room.css">
-    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/room.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+    <!--SCRIPTS-->
+    <script src="/scripts/main.js" defer type="module"></script>
+
     <title>Perguntas e respostas</title>
 </head>
 <body>
     <div id="room" class="content">
         <header>
-
-            <a href="#">
-                <img src="assets/Logo.svg" alt="Rocket.Q logo">
+            
+            <a href="/">
+                <img src="/img/Logo.svg" alt="Rocket.Q logo">
             </a>
-
+            
             <div class="buttons">
-                <div class="button outlined">
+                <div class="button outlined" id="room-id" data-id='232323'>
                     #232323
-                    <img src="assets/copy.svg" alt="Copiar numero da sala">
+                    <img src="/img/copy.svg" alt="Copiar numero da sala">
                 </div>
 
                 <a href="#" class="button">
-                    <img src="assets/bncBranco.svg" alt="Criar uma sala">
+                    <img src="/img/bncBranco.svg" alt="Criar uma sala">
                 Criar sala</a>
             </div>
         </header> 
@@ -46,7 +50,7 @@
 
                     <footer>
                         <div>
-                            <img src="assets/block.svg" alt="Cadeado">
+                            <img src="/img/block.svg" alt="Cadeado">
                             Esta pergunta é anônima
                         </div>
                         <button>Enviar</button>
@@ -62,7 +66,7 @@
                         <div class="question-content">
                             
                             <div class="user">
-                                <img src="assets/Avatar.svg" alt="ícone de usuário" />
+                                <img src="/img/Avatar.svg" alt="ícone de usuário" />
                             </div>
                             <div class="question">
                                 <p>Eae blz?? KKKKKKKKKKKKK</p>
@@ -70,12 +74,12 @@
                         </div>
                         <div class="actions">
 
-                            <a href="#">
-                                <img src="assets/check.svg" alt="">
+                            <a href="#" class='check' data-id='1'>
+                                <img src="/img/check.svg" alt="">
                                 Marcar como lida    
                             </a>
-                            <a href="#">
-                                <img src="assets/trash.svg" alt="">
+                            <a href="#" class='delete' data-id='1'>
+                                <img src="/img/trash.svg" alt="">
                                 Excluir
                             </a>
                         </div>
@@ -85,7 +89,7 @@
                         <div class="question-content">
                             
                             <div class="user">
-                                <img src="assets/Avatar.svg" alt="ícone de usuário" />
+                                <img src="/img/Avatar.svg" alt="ícone de usuário" />
                             </div>
                             <div class="question">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores laudantium consectetur voluptas! Illum nihil et repellendus. Obcaecati, sint corrupti repudiandae consequuntur molestias, eveniet illo nihil reprehenderit, amet possimus saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vel cumque optio distinctio quia impedit laborum ducimus, eligendi perferendis fugiat consectetur aliquid? Architecto magnam, omnis minus maiores corrupti natus exercitationem.</p>
@@ -93,12 +97,12 @@
                         </div>
                         <div class="actions">
 
-                            <a href="#">
-                                <img src="assets/check.svg" alt="">
+                            <a href="#" class='check' data-id='2'>
+                                <img src="/img/check.svg" alt="" >
                                 Marcar como lida    
                             </a>
-                            <a href="#">
-                                <img src="assets/trash.svg" alt="">
+                            <a href="#" class='delete'  data-id='2'>
+                                <img src="/img/trash.svg" alt="">
                                 Excluir
                             </a>
                         </div>
@@ -108,16 +112,16 @@
                         <div class="question-content">
                             
                             <div class="user">
-                                <img src="assets/Avatar.svg" alt="ícone de usuário" />
+                                <img src="/img/Avatar.svg" alt="ícone de usuário" />
                             </div>
                             <div class="question">
                                 <p>O que você quer perguntar?</p>
                             </div>
                         </div>
                         <div class="actions">
-
-                            <a href="#">
-                                <img src="assets/trash.svg" alt="">
+                            
+                            <a href="#" class="delete" data-id='3'>
+                                <img src="/img/trash.svg" alt="">
                                 Excluir
                             </a>
                         </div>
@@ -135,12 +139,12 @@
             <h2>Excluir pergunta</h2>
             <p>Você tem certeza que deseja exluir esta pergunta?</p>
 
-            <form action="">
+            <form action="#" method="POST">
                 <label for="password" class='sr-only'>Digite sua senha admin.</label>
                 <input type="password" name="password" id="password">
                 <div class="buttons">
 
-                    <div class="button gray">Cancelar</div>
+                    <div class="button gray cancel">Cancelar</div>
                     <button class='red'>Sim, Excluir </button>
                 </div>
             </form>
